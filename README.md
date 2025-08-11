@@ -1,5 +1,3 @@
-## Project Structure
-
 # 🌟 Manasi Suyal's Portfolio
 
 🚀 [Live Demo on Netlify](https://heyitsmanasi-xo-041303.netlify.app)
