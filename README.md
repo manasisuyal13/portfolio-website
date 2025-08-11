@@ -100,6 +100,5 @@ This project is open source and free to use.
 
 *© 2025 Manasi Suyal. All vibes reserved.* 🎀
 
-```
-```
+
 
