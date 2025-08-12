@@ -829,3 +829,26 @@ body.light-mode .footer-right a {
     width: 250px;
   }
 }
+
+@media (max-width: 480px) {
+  .project-card {
+    width: 90vw;
+    min-width: 250px;
+    max-width: 320px;
+  }
+
+  .projects-container {
+    gap: 1rem; 
+    padding-left: 10px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-container {
+    padding: 0 10px;
+  }
+}
+
+.project-desc {
+  word-wrap: break-word;
+}
