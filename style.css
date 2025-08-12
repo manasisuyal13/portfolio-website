@@ -748,3 +748,92 @@ body.light-mode .footer-right a {
   transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+  .firstSection, .secondSection {
+    flex-direction: column;
+    padding: 80px 20px;
+    gap: 30px;
+  }
+
+  .about-left, .about-right {
+    max-width: 100%;
+    flex: none;
+  }
+
+  .leftSection, .rightSection {
+    flex: none;
+    max-width: 100%;
+    transform: none !important;
+    text-align: center;
+  }
+
+  .rightSection img {
+    max-width: 280px;
+    margin: 20px auto 0;
+  }
+
+  .intro-text {
+    font-size: 2.8rem !important;
+  }
+
+  #element {
+    font-size: 1.8rem !important;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .nav-right {
+    gap: 15px;
+  }
+
+  .nav-right a {
+    font-size: 0.9rem;
+  }
+
+  .intro-text {
+    font-size: 2rem !important;
+  }
+
+  .hello-text {
+    font-size: 1.2rem;
+  }
+
+  .buttons a {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .about-right h1 {
+    font-size: 2rem;
+  }
+
+  .info-cards-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .projects-container {
+    gap: 1rem;
+    overflow-x: scroll;
+  }
+
+  .project-card {
+    width: 250px;
+  }
+}
+@media (max-width: 768px) {
+  .firstSection {
+    flex-direction: column !important;
+  }
+  .leftSection, .rightSection {
+    transform: none !important;
+  }
+}
