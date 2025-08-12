@@ -750,7 +750,7 @@ body.light-mode .footer-right a {
 
 @media (max-width: 768px) {
   .firstSection, .secondSection {
-    flex-direction: column;
+    flex-direction: column !important;
     padding: 80px 20px;
     gap: 30px;
   }
@@ -827,13 +827,5 @@ body.light-mode .footer-right a {
 
   .project-card {
     width: 250px;
-  }
-}
-@media (max-width: 768px) {
-  .firstSection {
-    flex-direction: column !important;
-  }
-  .leftSection, .rightSection {
-    transform: none !important;
   }
 }
