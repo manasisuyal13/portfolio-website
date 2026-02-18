@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manasi Suyal — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- Particle canvas background -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- Custom cursor -->
+<div class="cursor-orb" id="cursorOrb"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Morphing blobs -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<header id="mainHeader">
+  <div class="nav-left">
+    <a href="#home" class="logo-link">
+      <div class="logo-mark">
+        <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00d4ff"/>
+              <stop offset="100%" stop-color="#00ffcc"/>
+            </linearGradient>
+            <linearGradient id="lg2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#9d6bff"/>
+              <stop offset="100%" stop-color="#00d4ff"/>
+            </linearGradient>
+          </defs>
+          <!-- Clean diamond shape -->
+          <path d="M18 2L34 18L18 34L2 18Z" stroke="url(#lg1)" stroke-width="1.2" fill="none" opacity="0.7" class="logo-hex"/>
+          <!-- Inner diamond -->
+          <path d="M18 8L28 18L18 28L8 18Z" stroke="url(#lg2)" stroke-width="0.6" fill="none" opacity="0.4"/>
+          <!-- Center dot -->
+          <circle cx="18" cy="18" r="3" fill="url(#lg1)" class="logo-dot-accent"/>
+          <!-- Accent line top-right -->
+          <line x1="24" y1="12" x2="30" y2="6" stroke="url(#lg2)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <div class="logo-glow-bg"></div>
+      </div>
+      <span class="logo-name">Manasi's</span>
+    </a>
+  </div>
+  <nav class="nav-right">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <button class="theme-toggle" onclick="toggleMode()" title="Toggle Theme">
+      <span id="themeIcon">🌞</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Available for work</span>
+      </div>
+
+      <div class="hero-greeting">Hello, world —</div>
+
+      <h1 class="hero-name">
+        <span class="name-line">I'm <span class="accent-word">Manasi</span></span>
+        <span class="name-line"><span class="accent-word">Suyal</span></span>
+      </h1>
+
+      <div class="hero-typed-wrap">
+        <span class="typed-dash">—&nbsp;</span>
+        <span id="element"></span>
+      </div>
+
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <span>Let's talk</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="doc/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-ghost">Resume</a>
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-frame">
+        <div class="photo-ring photo-ring-1"></div>
+        <div class="photo-ring photo-ring-2"></div>
+        <div class="photo-ring photo-ring-3"></div>
+        <img src="doc/me_1.png" alt="Manasi Suyal" class="hero-photo"/>
+        <div class="photo-glow"></div>
+      </div>
+      <div class="float-chip chip-1">&#x1F40D; Python</div>
+      <div class="float-chip chip-2">&#x1F916; AI/ML</div>
+      <div class="float-chip chip-3">&#x1F4CA; Analytics</div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-img-col reveal">
+      <div class="about-img-frame">
+        <img src="doc/me_2.jpg" alt="Manasi Suyal"/>
+        <div class="img-overlay-badge">
+          <span class="material-symbols-outlined">code</span>
+          B.Tech CSE '25
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content-col reveal">
+      <div class="section-eyebrow">Who I am</div>
+      <h2 class="section-heading">About Me</h2>
+      <p class="about-body">
+        A recent B.Tech CSE graduate, I'm eager to contribute and grow in a dynamic software engineering role.
+        This is my first-ever portfolio — and yep, my first website too! It's a little corner of the internet
+        where I share what I've built and what I'm still figuring out. I enjoy building stuff and solving bugs.
+        Watching something go from "maybe this will work" to "yes, it works!" is what keeps me going.
+        <br/><br/>⚡ Open to full-time work and collaborations!
+      </p>
+
+      <div class="info-cards-section">
+        <div class="info-card shimmer-card">
+          <div class="card-icon-wrap"><span class="material-symbols-outlined">school</span></div>
+          <h3>Education</h3>
+          <p>B.Tech in Computer Science<br/>Graphic Era University, Dehradun<br/><em>(2021–2025)</em></p>
+        </div>
+        <div class="info-card shimmer-card">
+          <div class="card-icon-wrap"><span class="material-symbols-outlined">terminal</span></div>
+          <h3>Stack</h3>
+          <p>Python · SQL · Power BI · Pandas · NumPy · Scikit-learn · TensorFlow · Hugging Face · Tableau · Spark · Kafka · Airflow</p>
+        </div>
+        <div class="info-card shimmer-card">
+          <div class="card-icon-wrap"><span class="material-symbols-outlined">workspace_premium</span></div>
+          <h3>Certification</h3>
+          <p>Google Data Analytics Professional Certificate<br/><em>Coursera</em></p>
+        </div>
+      </div>
+
+      <div class="tools-section">
+        <h3 class="tools-heading">Tools I Use</h3>
+
+        <div class="tools-category">
+          <span class="tools-label">Languages &amp; Core</span>
+          <div class="tools-grid">
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/><span class="tooltip">Python</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"/><span class="tooltip">SQL</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"/><span class="tooltip">JavaScript</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/><span class="tooltip">Git</span></div>
+          </div>
+        </div>
+
+        <div class="tools-category">
+          <span class="tools-label">Data Analytics &amp; Viz</span>
+          <div class="tools-grid">
+            <div class="tool-icon"><img src="https://img.icons8.com/color/48/000000/power-bi.png" alt="Power BI"/><span class="tooltip">Power BI</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas"/><span class="tooltip">Pandas</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"/><span class="tooltip">NumPy</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"/><span class="tooltip">Matplotlib</span></div>
+            <div class="tool-icon"><img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau"/><span class="tooltip">Tableau</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"/><span class="tooltip">PostgreSQL</span></div>
+          </div>
+        </div>
+
+        <div class="tools-category">
+          <span class="tools-label">Data Engineering</span>
+          <div class="tools-grid">
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg" alt="Apache Spark"/><span class="tooltip">Apache Spark</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg" alt="Airflow"/><span class="tooltip">Airflow</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Kafka"/><span class="tooltip">Kafka</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"/><span class="tooltip">Docker</span></div>
+          </div>
+        </div>
+
+        <div class="tools-category">
+          <span class="tools-label">AI / Machine Learning</span>
+          <div class="tools-grid">
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"/><span class="tooltip">TensorFlow</span></div>
+            <div class="tool-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn"/><span class="tooltip">Scikit-learn</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"/><span class="tooltip">PyTorch</span></div>
+            <div class="tool-icon"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face"/><span class="tooltip">Hugging Face</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg" alt="Jupyter"/><span class="tooltip">Jupyter</span></div>
+          </div>
+        </div>
+
+        <div class="tools-category">
+          <span class="tools-label">Web &amp; Frontend</span>
+          <div class="tools-grid">
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/><span class="tooltip">React</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS"/><span class="tooltip">Tailwind CSS</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"/><span class="tooltip">HTML5</span></div>
+            <div class="tool-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"/><span class="tooltip">CSS3</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- PROJECTS -->
+  <section class="projects-section" id="projects">
+    <div class="projects-header reveal">
+      <div class="section-eyebrow">What I've built</div>
+      <h2 class="section-heading">Projects</h2>
+      <p class="section-sub">Drag to explore</p>
+    </div>
+
+    <div class="projects-track-wrap">
+      <div class="projects-track" id="projectsTrack">
+
+        <div class="project-card">
+          <div class="card-media">
+            <img src="doc/cronify.jpg" alt="Cronify" class="project-image"/>
+            <div class="card-media-overlay"></div>
+            <span class="project-tag">Python</span>
+          </div>
+          <div class="project-body">
+            <h3>Cronify — Job Scheduler</h3>
+            <p>Automates task execution with custom intervals and threading for real-time scheduling.</p>
+            <a href="https://github.com/manasisuyal13/cronify-job-scheduler" target="_blank" class="project-cta">
+              View on GitHub
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-media">
+            <img src="doc/marketing-funnel.jpg" alt="Marketing Funnel" class="project-image"/>
+            <div class="card-media-overlay"></div>
+            <span class="project-tag">Power BI</span>
+          </div>
+          <div class="project-body">
+            <h3>Marketing Funnel &amp; ROI Dashboard</h3>
+            <p>Power BI dashboard analyzing campaign performance, funnel drop-offs, and ROI trends.</p>
+            <a href="https://github.com/manasisuyal13/marketing-funnel-roi-dashboard" target="_blank" class="project-cta">
+              View on GitHub
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-media">
+            <img src="doc/sentiment-analyzer.png" alt="Sentiment Analyzer" class="project-image"/>
+            <div class="card-media-overlay"></div>
+            <span class="project-tag">NLP</span>
+          </div>
+          <div class="project-body">
+            <h3>Sentiment Analyzer</h3>
+            <p>NLP-based sentiment classifier detecting positive, negative, or neutral text in real-time.</p>
+            <a href="https://github.com/manasisuyal13/sentiment-analysis" target="_blank" class="project-cta">
+              View on GitHub
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-media">
+            <img src="doc/sign-language.jpg" alt="Sign Language Detection" class="project-image"/>
+            <div class="card-media-overlay"></div>
+            <span class="project-tag">ML / CV</span>
+          </div>
+          <div class="project-body">
+            <h3>Sign Language Detection</h3>
+            <p>ML-powered tool recognizing ASL gestures and translating them into text in real-time.</p>
+            <a href="https://github.com/manasisuyal13/sign_language_detection" target="_blank" class="project-cta">
+              View on GitHub
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-media">
+            <img src="doc/superstore-dashboard.jpg" alt="Superstore Sales Analysis" class="project-image"/>
+            <div class="card-media-overlay"></div>
+            <span class="project-tag">Analytics</span>
+          </div>
+          <div class="project-body">
+            <h3>Superstore Sales Analysis</h3>
+            <p>Interactive dashboard uncovering sales patterns and regional performance insights.</p>
+            <a href="https://github.com/manasisuyal13/superstore-sales-analysis" target="_blank" class="project-cta">
+              View on GitHub
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="projects-footer reveal">
+      <a href="https://github.com/manasisuyal13" target="_blank" class="see-more-btn">
+        See all on GitHub
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <div class="section-eyebrow">Say hello</div>
+        <h2 class="section-heading">Get in touch</h2>
+        <p class="contact-desc">Have a question or want to collaborate?<br/>My inbox is always open.</p>
+        <div class="contact-email">
+          <a href="mailto&#58;manasisuyal2003&#64;gmail&#46;com?subject=Let%27s%20Connect%20%E2%80%94%20From%20Your%20Portfolio&body=Hi%20Manasi%2C%0A%0AI%20found%20your%20portfolio%20and%20would%20love%20to%20connect!%0A%0A">
+            <span class="material-icons">email</span>
+            manasisuyal2003&#64;gmail&#46;com
+          </a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/manasisuyal13" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/manasisuyal13" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right reveal">
+        <form class="contact-form" id="contactForm">
+          <div class="field-group">
+            <input type="text" id="nameInput" placeholder=" " required/>
+            <label for="nameInput">Your name</label>
+          </div>
+          <div class="field-group">
+            <input type="email" id="emailInput" placeholder=" " required/>
+            <label for="emailInput">Your email</label>
+          </div>
+          <div class="field-group">
+            <textarea id="msgInput" placeholder=" " rows="5" required></textarea>
+            <label for="msgInput">Your message</label>
+          </div>
+          <button type="submit" class="btn-primary send-btn">
+            <span>Send message</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="footer-left">
+    © 2026 Manasi Suyal. All vibes reserved. &#x1F380;
+
+  </div>
+  <div class="footer-right">
+    <a href="https://github.com/manasisuyal13" target="_blank" rel="noopener noreferrer">GITHUB</a>
+    <a href="https://www.linkedin.com/in/manasi-suyal/">LINKEDIN</a>
+  </div>
+</footer>
+
+    </main>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
