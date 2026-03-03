@@ -9,7 +9,7 @@
   const ctx = canvas.getContext('2d');
 
   let W, H, particles = [], mouse = { x: -999, y: -999 };
-  const COUNT = 70;
+  const COUNT = window.innerWidth < 700 ? 28 : 70;
   const COLORS = ['rgba(0,212,255,', 'rgba(0,255,204,', 'rgba(157,107,255,', 'rgba(255,110,180,'];
 
   function resize() {
@@ -119,6 +119,8 @@
 
 // ── CUSTOM CURSOR ────────────────────────────
 (function initCursor() {
+  // Skip on touch devices
+  if (window.matchMedia('(pointer: coarse)').matches) return;
   const orb = document.getElementById('cursorOrb');
   const dot = document.getElementById('cursorDot');
   if (!orb || !dot) return;
@@ -153,6 +155,22 @@ function toggleMode() {
   const icon = document.getElementById('themeIcon');
   body.classList.toggle('light-mode');
   icon.textContent = body.classList.contains('light-mode') ? '🌙' : '🌞';
+}
+
+// ── MOBILE NAV ───────────────────────────────
+function toggleMobileNav() {
+  const nav = document.getElementById('navRight');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileNav() {
+  const nav = document.getElementById('navRight');
+  const btn = document.getElementById('hamburger');
+  nav.classList.remove('open');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 

@@ -404,6 +404,26 @@ body.light-mode .footer-right a:hover { color: var(--lm-cyan); }
 main { animation: fadeIn 0.45s ease forwards; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+/* ── HAMBURGER ───────────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; cursor: pointer; z-index: 1100;
+  transition: all 0.28s var(--ease-out);
+}
+.hamburger span {
+  display: block; width: 20px; height: 1.5px;
+  background: var(--text-soft); border-radius: 2px;
+  transition: all 0.28s var(--ease-out);
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+body.light-mode .hamburger { border-color: var(--lm-border); }
+body.light-mode .hamburger span { background: var(--lm-muted); }
+
 /* ── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 1100px) {
   .hero { padding: 120px 60px 80px; gap: 56px; }
@@ -411,39 +431,121 @@ main { animation: fadeIn 0.45s ease forwards; }
   .projects-header, .projects-footer { padding-left: 60px; padding-right: 60px; }
   .projects-track { padding-left: 60px; padding-right: 60px; }
 }
+
 @media (max-width: 860px) {
-  .hero { flex-direction: column; padding: 110px 40px 70px; text-align: center; gap: 55px; }
+  .hero { flex-direction: column; padding: 110px 40px 70px; text-align: center; gap: 48px; }
   .hero-badge, .hero-actions { justify-content: center; }
   .name-line { display: flex; justify-content: center; }
   .hero-typed-wrap { justify-content: center; }
   .about-section { flex-direction: column; padding: 80px 40px; align-items: center; }
-  .about-img-col { max-width: 240px; flex: none; }
+  .about-img-col { max-width: 220px; flex: none; }
   .about-img-frame img { margin-top: 0; }
   .about-content-col { min-width: unset; }
   .contact-section { padding: 80px 40px; }
-  .contact-inner { gap: 44px; }
+  .contact-inner { gap: 40px; }
   .projects-header, .projects-footer { padding-left: 40px; padding-right: 40px; }
   .projects-track { padding-left: 40px; padding-right: 40px; }
-  .photo-frame { width: 290px; height: 290px; }
-  .hero-photo { width: 290px; height: 290px; }
-  .chip-1, .chip-2 { right: -10px; }
-  .chip-3 { left: -10px; }
+  .photo-frame { width: 280px; height: 280px; }
+  .hero-photo { width: 280px; height: 280px; }
+  /* Tighten rings on medium screens */
+  .photo-ring-1 { inset: -10px; }
+  .photo-ring-2 { inset: -20px; }
+  .photo-ring-3 { inset: -32px; }
+  .chip-1 { right: -8px; top: 22%; }
+  .chip-2 { right: -8px; bottom: 22%; }
+  .chip-3 { left: -8px; bottom: 14%; }
 }
-@media (max-width: 600px) {
+
+@media (max-width: 700px) {
+  /* ── NAV: show hamburger, hide inline links ── */
+  .hamburger { display: flex; }
+  .nav-right {
+    position: fixed; inset: 0; top: 0;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 32px;
+    background: rgba(4,7,15,0.97);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    transform: translateX(100%);
+    transition: transform 0.38s var(--ease-out);
+    z-index: 1050;
+  }
+  body.light-mode .nav-right {
+    background: rgba(244,248,255,0.97);
+  }
+  .nav-right.open { transform: translateX(0); }
+  .nav-right .nav-link { font-size: 1.5rem; font-weight: 500; color: var(--text-soft); }
+  body.light-mode .nav-right .nav-link { color: var(--lm-muted); }
+  .nav-right .theme-toggle { margin-top: 12px; width: 48px; height: 48px; font-size: 1.2rem; }
+
+  /* ── HEADER ── */
   header { padding: 14px 20px; }
-  .nav-right { gap: 14px; }
-  .nav-link { font-size: 0.78rem; }
-  .hero { padding: 95px 20px 55px; }
-  .hero-name { letter-spacing: -2px; }
+
+  /* ── HERO ── */
+  .hero { padding: 90px 20px 50px; gap: 36px; }
+  .hero-name { font-size: clamp(3rem, 14vw, 5rem); letter-spacing: -1.5px; }
+  .hero-greeting { font-size: 0.72rem; letter-spacing: 2.5px; }
+  #element { font-size: 1rem; }
+  .typed-dash { font-size: 1rem; }
+  .hero-typed-wrap { margin-bottom: 28px; }
+  .btn-primary, .btn-ghost { padding: 13px 26px; font-size: 0.95rem; }
+  .hero-actions { gap: 10px; }
+
+  /* ── PHOTO FRAME ── */
+  .photo-frame { width: 230px; height: 230px; }
+  .hero-photo { width: 230px; height: 230px; }
+  .photo-ring-1 { inset: -8px; }
+  .photo-ring-2 { inset: -16px; }
+  .photo-ring-3 { inset: -26px; }
+
+  /* ── FLOAT CHIPS ── */
+  .float-chip { font-size: 0.7rem; padding: 5px 10px; gap: 4px; }
+  .chip-1 { right: -12px; top: 16%; }
+  .chip-2 { right: -12px; bottom: 18%; }
+  .chip-3 { left: -12px; bottom: 10%; }
+
+  /* ── ABOUT ── */
   .about-section { padding: 60px 20px; }
+  .about-body { font-size: 0.97rem; }
   .info-cards-section { flex-direction: column; }
-  .contact-section { padding: 60px 20px; }
-  .contact-form { padding: 22px 18px; }
+  .info-card { padding: 18px; }
+  /* Touch-friendly tool icons */
+  .tool-icon { width: 50px; height: 50px; border-radius: 14px; }
+  .tool-icon img { width: 26px; height: 26px; }
+
+  /* ── PROJECTS ── */
   .projects-section { padding-top: 60px; }
   .projects-header, .projects-footer { padding-left: 20px; padding-right: 20px; }
-  .projects-track { padding-left: 20px; padding-right: 20px; gap: 14px; }
-  .project-card { flex: 0 0 265px; }
+  .projects-track { padding-left: 16px; padding-right: 16px; gap: 14px; }
+  .project-card { flex: 0 0 calc(85vw); max-width: 320px; }
+  /* Disable fade edges on small screens so first card is fully visible */
+  .projects-track-wrap::before, .projects-track-wrap::after { width: 24px; }
+
+  /* ── CONTACT ── */
+  .contact-section { padding: 60px 20px; }
+  .contact-form { padding: 22px 16px; }
+  .contact-email a { font-size: 0.82rem; word-break: break-all; white-space: normal; }
+  .field-group input, .field-group textarea { font-size: 16px; } /* prevents iOS zoom */
+  .send-btn { padding: 16px; font-size: 1rem; }
+  .social-links { flex-wrap: wrap; }
+  .social-btn { padding: 12px 18px; min-height: 44px; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-heading { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+
+  /* ── FOOTER ── */
   .footer { flex-direction: column; gap: 11px; text-align: center; padding: 16px 20px; }
+
+  /* ── BLOBS: smaller on mobile ── */
+  .blob-1 { width: 260px; height: 260px; }
+  .blob-2 { width: 200px; height: 200px; }
+  .blob-3 { width: 180px; height: 180px; }
+}
+
+/* ── TOUCH DEVICES: hide custom cursor ── */
+@media (pointer: coarse) {
+  body { cursor: auto !important; }
+  .cursor-orb, .cursor-dot { display: none !important; }
 }
 
 /* ── CONTACT EMAIL ──────────────────────────────── */

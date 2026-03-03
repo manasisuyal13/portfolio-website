@@ -54,15 +54,18 @@
       <span class="logo-name">Manasi's</span>
     </a>
   </div>
-  <nav class="nav-right">
-    <a href="#home" class="nav-link">Home</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#contact" class="nav-link">Contact</a>
+  <nav class="nav-right" id="navRight">
+    <a href="#home" class="nav-link" onclick="closeMobileNav()">Home</a>
+    <a href="#about" class="nav-link" onclick="closeMobileNav()">About</a>
+    <a href="#projects" class="nav-link" onclick="closeMobileNav()">Projects</a>
+    <a href="#contact" class="nav-link" onclick="closeMobileNav()">Contact</a>
     <button class="theme-toggle" onclick="toggleMode()" title="Toggle Theme">
       <span id="themeIcon">🌞</span>
     </button>
   </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <main>
@@ -93,7 +96,7 @@
           <span>Let's talk</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="doc/Manasi_Suyal_SDE_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-ghost">Resume</a>
+        <a href="doc/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-ghost">Resume</a>
       </div>
 
     </div>
